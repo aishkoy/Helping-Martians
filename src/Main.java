@@ -28,6 +28,7 @@ public class Main {
 
             if (!gameWon) {
                 showBoxes(myArray);
+                clearScreen();
                 System.out.println("\nYou have exceeded the maximum number of attempts, the boxes are shuffled again. ");
                 shuffleBoxes(myArray, rand);
                 numOfTries = 0;
@@ -102,5 +103,23 @@ public class Main {
     public static void showTries(int maxNumOfTries, int numOfTries) {
         String result = (maxNumOfTries-numOfTries-1) == 1 ? "attempt" : "attempts";
         System.out.println("You have " + (maxNumOfTries-numOfTries-1) + " " + result + " left.");
+    }
+
+    public static void clearScreen() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            System.out.println("Error clearing the screen.");
+        }
     }
 }
