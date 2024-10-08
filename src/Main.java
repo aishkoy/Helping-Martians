@@ -28,7 +28,7 @@ public class Main {
 
             if (!gameWon) {
                 showBoxes(myArray);
-                clearScreen();
+                clearScreenWithDelay();
                 System.out.println("You have exceeded the maximum number of attempts, the boxes are shuffled again. ");
                 shuffleBoxes(myArray, rand);
                 numOfTries = 0;
@@ -88,6 +88,7 @@ public class Main {
         } else if (correctGuesses == 2) {
             System.out.println("You found 2 boxes");
         } else if (correctGuesses == 3) {
+            clearScreen();
             System.out.println("You found 3 boxes. Congratulations!");
             return true;
         } else{
@@ -102,13 +103,25 @@ public class Main {
         System.out.println("You have " + (maxNumOfTries-numOfTries-1) + " " + result + " left.");
     }
 
-    public static void clearScreen() {
+    public static void clearScreenWithDelay() {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            System.out.println("Error clearing the screen.");
+        }
+    }
+
+    public static void clearScreen() {
         try {
             if (System.getProperty("os.name").contains("Windows")) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
