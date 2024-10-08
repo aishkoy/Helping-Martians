@@ -39,9 +39,6 @@ public class Main {
     }
 
 
-
-
-
     public static void shuffleBoxes(int [] myArray, Random rand) {
             int indexCount = 0;
             int index;
@@ -107,7 +104,7 @@ public class Main {
 
     public static void clearScreen() {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
