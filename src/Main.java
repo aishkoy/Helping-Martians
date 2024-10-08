@@ -29,7 +29,7 @@ public class Main {
             if (!gameWon) {
                 showBoxes(myArray);
                 clearScreen();
-                System.out.println("\nYou have exceeded the maximum number of attempts, the boxes are shuffled again. ");
+                System.out.println("You have exceeded the maximum number of attempts, the boxes are shuffled again. ");
                 shuffleBoxes(myArray, rand);
                 numOfTries = 0;
             }
@@ -104,7 +104,7 @@ public class Main {
 
     public static void clearScreen() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
