@@ -9,7 +9,7 @@ public class Main {
         int[] myArray = new int[7];
         int numOfTries = 0;
         int maxNumOfTries = 5;
-        boolean gameWon = false;
+        boolean gameWon = false; //isGameWon
 
         shuffleBoxes(myArray, rand);
         System.out.println("Hello! Help me find the boxes,please.");
@@ -44,7 +44,7 @@ public class Main {
             int index;
             int k = 0;
 
-            for(;k<7;k+=1){
+            for(;k < 7;k += 1){
                 myArray[k] = 0;
             }
 
@@ -60,7 +60,7 @@ public class Main {
     public static void showBoxes(int [] myArray) {
         int i = 0;
         System.out.println("\nThat's where the boxes were hidden:");
-        for(; i<myArray.length; i+=1) {
+        for(; i < myArray.length; i += 1) {
             System.out.print(myArray[i] + " ");
         }
     }
@@ -99,8 +99,8 @@ public class Main {
     }
 
     public static void showTries(int maxNumOfTries, int numOfTries) {
-        String result = (maxNumOfTries-numOfTries-1) == 1 ? "attempt" : "attempts";
-        System.out.println("You have " + (maxNumOfTries-numOfTries-1) + " " + result + " left.");
+        String result = (maxNumOfTries - numOfTries - 1) == 1 ? "attempt" : "attempts";
+        System.out.println("You have " + (maxNumOfTries - numOfTries - 1) + " " + result + " left.");
     }
 
     public static void clearScreenWithDelay() {
